@@ -1,0 +1,45 @@
+<div [hidden]="!loading">
+  <div class="preloader">
+    <div class="loader">
+
+    </div>
+    <span class="loaderMessage" fxFlex fxFlexAlign="center">{{loadingMessage}}</span>
+  </div>
+</div>
+<mat-sidenav-container fxFlexFill>
+  <mat-sidenav
+               #sidenav
+               class="mat-elevation-z8"
+               mode="{{screenWidth < 199 ? '' : 'side'}}"
+               opened="{{screenWidth>=199}}">
+    <div fxLayout="column" fxLayoutAlign="center center">
+      <img src="assets/logo-small2.png" style="margin-top: 20px;">
+    </div>
+    <mat-nav-list>
+      <h3 mat-subheader>Konfiguracja elementów</h3>
+      <mat-list-item [routerLink]="'product-group' ">Grupy produktów</mat-list-item>
+      <mat-list-item [routerLink]="'color' ">Kolory</mat-list-item>
+      <mat-list-item [routerLink]="'rod-length' ">Długości drążka</mat-list-item>
+      <mat-list-item [routerLink]="'support' ">Wsporniki</mat-list-item>
+      <mat-list-item [routerLink]="'ending' ">Zakończenia</mat-list-item>
+      <mat-list-item [routerLink]="'ending-second-rod' ">Zakończenia dla drugiego drążka</mat-list-item>
+      <mat-list-item [routerLink]="'circle' ">Kółka</mat-list-item>
+      <h3 mat-subheader>Zarządzanie sprzedażą</h3>
+      <mat-list-item [routerLink]="'orders' ">Lista zamówień</mat-list-item>
+      <mat-list-item [routerLink]="'address-config' ">Konfiguracja adresu</mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-card class="mat-elevation-z8">
+      <mat-card-content>
+            Kalkulator Karniszowy - Panel Administracyjny
+            <router-outlet>
+
+            </router-outlet>
+      </mat-card-content>
+    </mat-card>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+

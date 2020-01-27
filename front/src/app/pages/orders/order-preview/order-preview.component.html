@@ -1,0 +1,204 @@
+<h2>
+  Zamówienie numer {{id}}
+</h2>
+<div >
+  <div fxLayout="row" fxLayoutAlign="space-between center" class="wiersz">
+    <div fxFlex="30">
+      Informacje dodatkowe:
+    </div>
+    <div fxFlex="70">
+      {{order?.additionalInformations}}
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <div fxLayout="row" fxLayoutAlign="space-between center" class="wiersz">
+    <div fxFlex="30">
+      Adres przekierowania:
+    </div>
+    <div fxFlex="70">
+      {{order?.redirectUrl}}
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <div fxLayout="row" fxLayoutAlign="space-between center" class="wiersz">
+    <div fxFlex="30">
+      Cena za jednostkę:
+    </div>
+    <div fxFlex="70">
+      {{order?.pricePerElement}}
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <div fxLayout="row" fxLayoutAlign="space-between center" class="wiersz">
+    <div fxFlex="20">
+      Kolor:
+    </div>
+    <div fxFlex="20">
+      <span></span>
+    </div>
+    <div fxFlex="20">
+      <span></span>
+    </div>
+    <div fxFlex="20">
+      <b>{{color?.name}}</b>
+    </div>
+    <div fxFlex="20">
+      <span></span>
+    </div>
+  </div>
+  <mat-divider class="wiersz"></mat-divider>
+  <div fxLayout="row" fxLayoutAlign="space-between center" class="wiersz">
+    <div fxFlex="20">
+      Grupa produktów:
+    </div>
+    <div fxFlex="20">
+      <span></span>
+    </div>
+    <div fxFlex="20">
+      <span></span>
+    </div>
+    <div fxFlex="20">
+      <b>{{productGroup?.name}}</b>
+    </div>
+    <div fxFlex="20">
+      <span></span>
+    </div>
+  </div>
+  <mat-divider class="wiersz"></mat-divider>
+  <div fxLayout="row" fxLayoutAlign="space-between center" class="wiersz">
+    <div fxFlex="20">
+      Długość drążka:
+    </div>
+    <div fxFlex="20">
+      <span></span>
+    </div>
+    <div fxFlex="20">
+      <span></span>
+    </div>
+    <div fxFlex="20">
+      <b>{{rodLength?.length}}</b>
+    </div>
+    <div fxFlex="20" fxLayoutAlign="end center">
+      {{rodLength?.price}} zł
+    </div>
+  </div>
+  <mat-divider class="wiersz"></mat-divider>
+  <div fxLayout="row" fxLayoutAlign="space-between center" class="wiersz">
+    <div fxFlex="20">
+      Ilość drążków:
+    </div>
+    <div fxFlex="20">
+      <span></span>
+    </div>
+    <div fxFlex="20">
+      <span></span>
+    </div>
+    <div fxFlex="20">
+      <b>{{order?.rodCount}}</b>
+    </div>
+    <div fxFlex="20" fxLayoutAlign="end center">
+      {{rodLength?.price}}x{{order?.rodCount}}={{rodLength?.price * order?.rodCount}} zł
+    </div>
+  </div>
+  <mat-divider class="wiersz"></mat-divider>
+  <div fxLayout="row" fxLayoutAlign="space-between center" class="wiersz">
+    <div fxFlex="20">
+      Wsporniki:
+    </div>
+    <div fxFlex="20">
+      <b>{{support?.name}}</b>
+    </div>
+    <div fxFlex="20">
+      <!--Ilość:-->
+    </div>
+    <div fxFlex="20">
+      <!--<b>{{order?.supportCount}}</b>-->
+    </div>
+    <div fxFlex="20" fxLayoutAlign="end center">
+      <!--{{support?.price}}x{{order?.supportCount}}={{support?.price * order?.supportCount}} zł-->
+      {{support?.price}} zł
+    </div>
+  </div>
+  <mat-divider class="wiersz"></mat-divider>
+  <div fxLayout="row" fxLayoutAlign="space-between center" class="wiersz">
+    <div fxFlex="20">
+      Zakończenia:
+    </div>
+    <div fxFlex="60">
+      <b>{{ending?.name}}</b>
+    </div>
+<!--    <div fxFlex="20">-->
+<!--      &lt;!&ndash;Ilość:&ndash;&gt;-->
+<!--    </div>-->
+<!--    <div fxFlex="20">-->
+      <!--<b>{{order?.endingCount}}</b>-->
+<!--    </div>-->
+    <div fxFlex="20" fxLayoutAlign="end center">
+      <!--{{ending?.price}}x{{order?.endingCount}}={{ending?.price * order?.endingCount}} zł-->
+      {{ending?.price}} zł
+    </div>
+  </div>
+  <mat-divider class="wiersz"></mat-divider>
+
+  <div fxLayout="row" fxLayoutAlign="space-between center" class="wiersz" *ngIf="ending2">
+    <div fxFlex="20">
+      Zakończenia dla drugiego drążka:
+    </div>
+    <div fxFlex="60">
+      <b>{{ending2?.name}}</b>
+    </div>
+    <!--<div fxFlex="20">-->
+    <!--Ilość:-->
+    <!--</div>-->
+<!--    <div fxFlex="20">-->
+    <!--<b>{{order?.endingCount}}</b>-->
+<!--    </div>-->
+    <div fxFlex="20" fxLayoutAlign="end center">
+    {{ending2?.price}} zł
+    </div>
+  </div>
+  <mat-divider class="wiersz" *ngIf="ending2"></mat-divider>
+
+  <div fxLayout="row" fxLayoutAlign="space-between center" class="wiersz">
+    <div fxFlex="20">
+      Kółka:
+    </div>
+    <div fxFlex="20">
+      <b>{{circle?.name}}</b>
+    </div>
+    <div fxFlex="20">
+      <!--Ilość:-->
+    </div>
+    <div fxFlex="20">
+      <!--<b>{{order?.circleCount}}</b>-->
+    </div>
+    <div fxFlex="20" fxLayoutAlign="end center">
+      <!--{{circle?.price}}x{{order?.circleCount}}={{circle?.price * order?.circleCount}} zł-->
+      {{circle?.price}} zł
+    </div>
+  </div>
+  <mat-divider class="wiersz"></mat-divider>
+  <div fxLayout="row" fxLayoutAlign="space-between center" class="wiersz">
+    <div fxFlex="20">
+      <span></span>
+    </div>
+    <div fxFlex="20">
+      <span></span>
+    </div>
+    <div fxFlex="20">
+      <span></span>
+    </div>
+    <div fxFlex="20">
+      Suma:
+    </div>
+    <div fxFlex="20" fxLayoutAlign="end center">
+      {{
+      (rodLength?.price * order?.rodCount) +
+      (support?.price) +
+      (ending?.price) +
+      (ending2?.price) +
+      (circle?.price)
+      }} zł
+    </div>
+  </div>
+</div>
